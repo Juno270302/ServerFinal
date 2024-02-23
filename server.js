@@ -24,10 +24,11 @@ app.get("/config", (req, res) => {
 app.post("/create-payment-intent", async (req, res) => {
   try {
     const paymentIntent = await stripe.paymentIntents.create({
-      currency: "EUR",
-      amount: 2000,
+      currency: "USD",
+      amount: 1000,
       automatic_payment_methods: { enabled: true },
     });
+    console.log(paymentIntent)
 
     // Send publishable key and PaymentIntent details to client
     res.send({
